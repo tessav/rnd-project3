@@ -39,18 +39,19 @@ First, I passed the point cloud through a statistical outlier filter (k-mean: 15
 <br><br>
 Next, I applied a passthrough filter (axis: z, axis min: 0.6, axis max: 1.1) to remove irrelevant points in the cloud. In order to identify and separate points that belong to a certain model (SACMODEL_PLANE), I ran the RANSAC plane segmentation method (max distance: 0.01) and extracted the outliers (the objects). The resulting point cloud can be seen below. 
 <br><br>
-
-![cloud objects](https://raw.githubusercontent.com/tessav/rnd-project3/master/images/cloud_objects.png)
-
+<img src="https://raw.githubusercontent.com/tessav/rnd-project3/master/images/cloud_objects.png" width=500 />
+<br><br>
 #### 2. Complete Exercise 2 steps: Pipeline including clustering for segmentation implemented.  
 I first created a kd-tree with the white cloud and then called the euclidean clustering method (tolerance: 0.03, min cluster size: 10, max cluster size: 2000). In order to visualize each identified cluster separately, I created cluster-mask point clouds of different colors. The result can be seen below.
 <br><br>
-![cloud cluster](https://raw.githubusercontent.com/tessav/rnd-project3/master/images/cluster_cloud.png)
+<img src="https://raw.githubusercontent.com/tessav/rnd-project3/master/images/cluster_cloud.png" width=500 />
+<br><br>
 
 #### 2. Complete Exercise 3 Steps.  Features extracted and SVM trained.  Object recognition implemented.
 For the models: biscuits, soap, soap2, glue, sticky_notes, snacks, eraser and book (those present in the pick list), I took 100 samples each (of different poses) and extracted histogram features (using hsv). These captured features are then used to train the SVM which resulted in ~95% accuracy. The confusion matrix of the above models are shown below. 
 <br><br>
-
+<img src="https://raw.githubusercontent.com/tessav/rnd-project3/master/images/confusion_matrix.png" />
+<br><br>
 
 ### Pick and Place Setup
 

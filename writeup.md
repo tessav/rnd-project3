@@ -50,20 +50,24 @@ I first created a kd-tree with the white cloud and then called the euclidean clu
 #### 2. Complete Exercise 3 Steps.  Features extracted and SVM trained.  Object recognition implemented.
 For the models: biscuits, soap, soap2, glue, sticky_notes, snacks, eraser and book (those present in the pick list), I took 100 samples each (of different poses) and extracted histogram features (using hsv). These captured features are then used to train the SVM which resulted in ~95% accuracy. The confusion matrix of the above models are shown below. 
 <br><br>
-<img src="https://raw.githubusercontent.com/tessav/rnd-project3/master/images/confusion_matrix.png" />
+<img src="https://raw.githubusercontent.com/tessav/rnd-project3/master/images/confusion_matrix.png" width=600 />
 <br><br>
 
 ### Pick and Place Setup
 
 #### 1. For all three tabletop setups (`test*.world`), perform object recognition, then read in respective pick list (`pick_list_*.yaml`). Next construct the messages that would comprise a valid `PickPlace` request output them to `.yaml` format.
-Pick up list 1 detection result:
+### Pick up list 1 detection result:
+<br>
+<img src="https://raw.githubusercontent.com/tessav/rnd-project3/master/images/pickup_list_1.png" width=500 />
 <br><br>
+### Pick up list 2 detection result:
+<br>
+<img src="https://raw.githubusercontent.com/tessav/rnd-project3/master/images/pickup_list_2.png" width=500 />
 <br><br>
-Pick up list 2 detection result:
-<br><br>
-<br><br>
-Pick up list 3 detection result:
-<br><br>
+### Pick up list 3 detection result:
+<br>
+<img src="https://raw.githubusercontent.com/tessav/rnd-project3/master/images/pickup_list_3.png" width=500 />
+<br>
 
 In order to construct the PickPlace request, I obtained the centroid of the object to be picked so that I can create the pick pose, used the drop box group to create the place pose, and based on the particular drop box, select whether to use the left or right arm.  
 

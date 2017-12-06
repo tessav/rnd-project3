@@ -1,5 +1,4 @@
 ## Project: Perception Pick & Place
-### Writeup Template: You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
 
 ---
 
@@ -36,22 +35,39 @@ You're reading it!
 
 ### Exercise 1, 2 and 3 pipeline implemented
 #### 1. Complete Exercise 1 steps. Pipeline for filtering and RANSAC plane fitting implemented.
+First, I passed the point cloud through a statistical outlier filter (k-mean: 15, threshold factor: 0.3) to reduce noise, and then a voxel downsampling filter (leaf size: 0.01) to reduce cloud size. 
+<br><br>
+Next, I applied a passthrough filter (axis min: 0.6, axis max: 1.1) to remove irrelevant points in the cloud. In order to identify and separate points that belong to a certain model (SACMODEL_PLANE), I ran the RANSAC plane segmentation method (max distance: 0.01) and extracted the outliers (the objects). The resulting point cloud can be seen below. 
+<br><br>
+
+
 
 #### 2. Complete Exercise 2 steps: Pipeline including clustering for segmentation implemented.  
+I first created a kd-tree with the white cloud and then called the euclidean clustering method (tolerance: 0.03, min cluster size: 10, max cluster size: 2000). In order to visualize each identified cluster separately, I created cluster-mask point clouds of different colors. The result can be seen below.
+<br><br>
+
 
 #### 2. Complete Exercise 3 Steps.  Features extracted and SVM trained.  Object recognition implemented.
-Here is an example of how to include an image in your writeup.
+For the models: biscuits, soap, soap2, glue, sticky_notes, snacks, eraser and book (those present in the pick list), I took 100 samples each (of different poses) and extracted histogram features (using hsv). These captured features are then used to train the SVM which resulted in ~95% accuracy. The confusion matrix of the above models are shown below. 
+<br><br>
+
 
 ![demo-1](https://user-images.githubusercontent.com/20687560/28748231-46b5b912-7467-11e7-8778-3095172b7b19.png)
 
 ### Pick and Place Setup
 
 #### 1. For all three tabletop setups (`test*.world`), perform object recognition, then read in respective pick list (`pick_list_*.yaml`). Next construct the messages that would comprise a valid `PickPlace` request output them to `.yaml` format.
+Pick up list 1 detection result:
+<br><br>
+<br><br>
+Pick up list 2 detection result:
+<br><br>
+<br><br>
+Pick up list 3 detection result:
+<br><br>
 
-And here's another image! 
-![demo-2](https://user-images.githubusercontent.com/20687560/28748286-9f65680e-7468-11e7-83dc-f1a32380b89c.png)
+In order to construct the PickPlace request, I obtained the centroid of the object to be picked so that I can create the pick pose, used the drop box group to create the place pose, and based on the particular drop box, select whether to use the left or right arm.  
 
-Spend some time at the end to discuss your code, what techniques you used, what worked and why, where the implementation might fail and how you might improve it if you were going to pursue this project further.  
-
+For improvement: currently, edges of the red / green boxes are detected as objects (sticky notes) so total number of objects is always 2 more than the real number. In order to remove the false detection, I should tweak the passthrough filter to include other filter axes and values.
 
 

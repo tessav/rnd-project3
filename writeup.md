@@ -73,6 +73,8 @@ For the models: biscuits, soap, soap2, glue, sticky_notes, snacks, eraser and bo
 
 In order to construct the PickPlace request, I obtained the centroid of the object to be picked so that I can create the pick pose, used the drop box group to create the place pose, and based on the particular drop box, select whether to use the left or right arm.  
 
-For improvement: currently, edges of the red / green boxes are detected as objects (sticky notes) so total number of objects is always 2 more than the real number. In order to remove the false detection, I should tweak the passthrough filter to include other filter axes and values.
+### For improvement: 
+1. currently, edges of the red / green boxes are detected as objects (sticky notes) so total number of objects is always 2 more than the real number. In order to remove the false detection, I should tweak the passthrough filter to include other filter axes and values.
+2. implement pick and place using collison map when I have time
 
 

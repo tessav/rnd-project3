@@ -57,17 +57,17 @@ For the models: biscuits, soap, soap2, glue, sticky_notes, snacks, eraser and bo
 
 #### 1. For all three tabletop setups (`test*.world`), perform object recognition, then read in respective pick list (`pick_list_*.yaml`). Next construct the messages that would comprise a valid `PickPlace` request output them to `.yaml` format.
 #### Pick up list 1 detection result:
-<br>
+
 <img src="https://raw.githubusercontent.com/tessav/rnd-project3/master/images/pickup_list_1.png" width=500 />
-<br><br>
+<br>
 
 #### Pick up list 2 detection result:
-<br>
+
 <img src="https://raw.githubusercontent.com/tessav/rnd-project3/master/images/pickup_list_2.png" width=500 />
-<br><br>
+<br>
 
 #### Pick up list 3 detection result:
-<br>
+
 <img src="https://raw.githubusercontent.com/tessav/rnd-project3/master/images/pickup_list_3.png" width=500 />
 <br>
 

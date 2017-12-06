@@ -37,7 +37,7 @@ You're reading it!
 #### 1. Complete Exercise 1 steps. Pipeline for filtering and RANSAC plane fitting implemented.
 First, I passed the point cloud through a statistical outlier filter (k-mean: 15, threshold factor: 0.3) to reduce noise, and then a voxel downsampling filter (leaf size: 0.01) to reduce cloud size. 
 <br><br>
-Next, I applied a passthrough filter (axis min: 0.6, axis max: 1.1) to remove irrelevant points in the cloud. In order to identify and separate points that belong to a certain model (SACMODEL_PLANE), I ran the RANSAC plane segmentation method (max distance: 0.01) and extracted the outliers (the objects). The resulting point cloud can be seen below. 
+Next, I applied a passthrough filter (axis: z, axis min: 0.6, axis max: 1.1) to remove irrelevant points in the cloud. In order to identify and separate points that belong to a certain model (SACMODEL_PLANE), I ran the RANSAC plane segmentation method (max distance: 0.01) and extracted the outliers (the objects). The resulting point cloud can be seen below. 
 <br><br>
 
 
